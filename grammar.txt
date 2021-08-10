@@ -1,0 +1,82 @@
+<Program>     -> <FunctionList>
+
+<FunctionList>      -> <Function> | <Function> <FunctionList>
+
+<Function>    -> <Type> IDENTIFIER LPAREN <ArgList> RPAREN 
+                LBRACE
+                    <Body>
+                RBRACE
+
+<ArgList>     -> e | <Args>
+
+<Args>        -> <Type> IDENTIFIER | <Type> IDENTIFIER COMMA <ArgList> 
+
+<Type>       -> INT | CHAR | STRING
+
+IDENTIFIER -> [a-zA-Z]+
+
+<Body>       -> <StmtList>
+
+<StmtList>   -> e | <Stmt> <StmtList>
+
+<Stmt>   -> <AssignStmt> | <IfElse> | <ForLoop> | <ReturnStmt>
+
+<ReturnStmt>  -> RETURN (<Expr> | e) SEMICOLON
+
+<AssignStmt> -> [<Type>] (IDENTIFIER | <ArrIdent>) ASSIGN <Expr> SEMICOLON
+
+<Expr>       -> <Term> [(PLUS | MINUS) <Expr>]
+
+<Term>       -> <Factor> [( STAR | SLASH ) <Term>]
+
+<Factor>     -> LPAREN <Expr> RPAREN | <FunctionCall> | IDENTIFIER | INTEGER | STRINGLIT | <ArrIdent>
+
+<ArrIdent>   -> IDENTIFIER LBRACKET <Expr> RBRACKET
+
+<FunctionCall>     -> IDENTIFIER LPAREN <ParameterList> RPAREN
+
+<ParameterList>    -> e | <Params>
+
+<Params>           -> IDENTIFIER | IDENTIFIER COMMA <ParameterList>
+
+<CompExpr>  -> <Expr> [COMP_OP <Expr>]
+
+<IfElse>    -> IF LPAREN <CompExpr> RPAREN 
+                    LBRACE
+                        <Body>
+                    RBRACE 
+                ELSE 
+                    LBRACE
+                        <Body>
+                    RBRACE
+
+
+<ForLoop>   -> FOR LPAREN <AssignStmt> <CompExpr> SEMICOLON <AssignStmt> 
+                LBRACE
+                    <Body>
+                RBRACE
+
+INTEGER      -> [0-9]+
+STRINGLIT    -> [a-zA-Z]* 
+LPAREN       -> (
+RPAREN       -> )
+LBRACKET     -> [
+RBRACKET     -> ]
+LBRACE       -> {
+RBRACE       -> }
+INT          -> int 
+CHAR         -> char
+STRING       -> string
+FOR          -> for
+IF           -> if
+ELSE         -> else
+SEMICOLON    -> ;
+COMMA        -> ,
+COMP_OP      -> < | > | == | !=
+ASSIGN       -> =
+PLUS         -> +
+MINUS        -> -
+STAR         -> *
+SLASH        -> /
+IDENTIFIER   -> [a-zA-Z]+
+RETURN       -> return
