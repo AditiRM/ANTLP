@@ -4,7 +4,7 @@ Context-free grammar, lexer and recursive descent parser for a C-like language i
 ## Motivation
 
 To implement lexical and syntax analyzers. 
-Also wanted to go out of our comfort zone and choose a modern language that I had not tried before.
+Also wanted to choose a modern language that I had not tried before.
 
 ## Usage
 
