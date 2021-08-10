@@ -53,7 +53,7 @@ func TestCheckLine(t *testing.T) {
 		{keywords["int"], "int", 8},
 		{IDENT, "x", 8},
 		{EQUALS, "=", 8},
-		{INTEGER, "5", 9},
+		{INTEGER, "25", 9},
 		{SEMICOLON, ";", 9},
 		{keywords["int"], "int", 10},
 		{IDENT, "j", 10},
@@ -104,7 +104,7 @@ func TestRandom(t *testing.T) {
 		{STRING, "\"hello i am a string\"", 1},
 		{STRING, "\"another one\"", 2},
 		{INTEGER, "1234", 3},
-		{INTEGER, "99192", 4},
+		{INTEGER, "87456", 4},
 		{PLUS, "+", 5},
 		{EQUALS, "=", 5},
 		{MINUS, "-", 5},
@@ -133,7 +133,7 @@ func TestComments(t *testing.T) {
 		{keywords["int"], "int", 3},
 		{IDENT, "x", 3},
 		{EQUALS, "=", 3},
-		{INTEGER, "1", 3},
+		{INTEGER, "23", 3},
 		{SEMICOLON, ";", 3},
 	}
 
