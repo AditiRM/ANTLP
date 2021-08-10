@@ -43,62 +43,6 @@ func TestSimple(t *testing.T) {
 	checkOutput(t, "tests/simple.txt", output[:])
 }
 
-func TestBig(t *testing.T) {
-	output := [...]Token{
-		{keywords["int"], "int", 1},
-		{IDENT, "main", 1},
-		{LPAREN, "(", 1},
-		{RPAREN, ")", 1},
-		{LBRACE, "{", 1},
-		{keywords["int"], "int", 2},
-		{IDENT, "x", 2},
-		{EQUALS, "=", 2},
-		{INTEGER, "5", 2},
-		{SEMICOLON, ";", 2},
-		{keywords["int"], "int", 3},
-		{IDENT, "j", 3},
-		{EQUALS, "=", 3},
-		{INTEGER, "0", 3},
-		{SEMICOLON, ";", 3},
-		{keywords["for"], "for", 4},
-		{LPAREN, "(", 4},
-		{keywords["int"], "int", 4},
-		{IDENT, "i", 4},
-		{EQUALS, "=", 4},
-		{INTEGER, "0", 4},
-		{SEMICOLON, ";", 4},
-		{IDENT, "i", 4},
-		{COMP_OP, "<", 4},
-		{INTEGER, "10", 4},
-		{SEMICOLON, ";", 4},
-		{IDENT, "i", 4},
-		{EQUALS, "=", 4},
-		{IDENT, "i", 4},
-		{PLUS, "+", 4},
-		{INTEGER, "1", 4},
-		{RPAREN, ")", 4},
-		{LBRACE, "{", 4},
-		{keywords["if"], "if", 5},
-		{LPAREN, "(", 5},
-		{IDENT, "x", 5},
-		{COMP_OP, "<", 5},
-		{IDENT, "i", 5},
-		{RPAREN, ")", 5},
-		{LBRACE, "{", 5},
-		{IDENT, "j", 6},
-		{EQUALS, "=", 6},
-		{IDENT, "j", 6},
-		{PLUS, "+", 6},
-		{INTEGER, "1", 6},
-		{SEMICOLON, ";", 6},
-		{RBRACE, "}", 7},
-		{RBRACE, "}", 8},
-		{RBRACE, "}", 9},
-	}
-
-	checkOutput(t, "tests/big.txt", output[:])
-}
-
 func TestCheckLine(t *testing.T) {
 	output := [...]Token{
 		{keywords["int"], "int", 5},
